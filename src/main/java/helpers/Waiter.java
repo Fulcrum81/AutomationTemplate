@@ -39,10 +39,39 @@ public class Waiter {
                 return complete;
             }
         });
-//        if ($(Header.MAIN_MENU_CONTAINER).exists()) {
-//            Actions.setMainMenuInvisible();
+    }
+
+//    public static void waitForProcessing(){
+//        try {
+//            getWaiter().until(new ExpectedCondition<Boolean>() {
+//                @Override
+//                public Boolean apply(WebDriver webDriver) {
+//                    return $(get("processingDialog")).isDisplayed();
+//                }
+//            });
+//            $(get("processingDialog")).waitUntil(disappear, 120000);
 //        }
-//        sleep(1000); //TODO: ?
+//        catch (TimeoutException ex){
+//            //do nothing
+//        }
+//    }
+
+    public static void waitForPollingToStart(final TrafficListener poller, final long millisec) {
+        getWaiter().until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver webDriver) {
+                return poller.isPolling(millisec);
+            }
+        });
+    }
+
+    public static void waitForQuietPeriodOf(final TrafficListener poller, final long millisec) {
+        getWaiter().until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver webDriver) {
+                return poller.isQuiteFor(millisec);
+            }
+        });
     }
 
     private static WebDriverWait getWaiter() {

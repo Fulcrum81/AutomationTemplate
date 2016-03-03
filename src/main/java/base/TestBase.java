@@ -10,14 +10,17 @@ import java.util.logging.Logger;
 import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
-    private static final String BASE_URL = "http://10.10.101.81";
+    private static final String BASE_URL = "https://comaqa.by/";
+    private static final String BROWSER = "chrome";
+    private static final int TIMEOUT = 5000;
 
     public static final Logger LOGGER = Logger.getLogger(TestBase.class.getName());
 
     @BeforeMethod
     public void setup() {
+        Configuration.browser = System.getProperty("browser", BROWSER);
         Configuration.baseUrl = System.getProperty("baseUrl", BASE_URL);
-        Configuration.timeout = 20000;
+        Configuration.timeout = TIMEOUT;
         Configuration.startMaximized = true;
 
         LOGGER.setLevel(Level.CONFIG);
