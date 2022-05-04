@@ -9,4 +9,8 @@ public class EventsPage extends PageBase {
         shouldAppear(TITLE);
     }
 
+    public static void someOtherMethod() {
+        //also do nothing
+    }
+
 }

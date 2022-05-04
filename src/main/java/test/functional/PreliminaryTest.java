@@ -45,4 +45,10 @@ public class PreliminaryTest extends TestBase {
     public void nonImplementedTest() {
         //This test is not yet implemented
     }
+
+    @Test()
+    public void testCase18() {
+        //do something
+        //that makes sense
+    }
 }
