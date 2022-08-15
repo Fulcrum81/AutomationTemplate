@@ -47,7 +47,7 @@ public class PreliminaryTest extends TestBase {
     }
 
     @Test()
-    public void testCase18() {
+    public void loginTestCase() {
         //do something
         //that makes sense
         //Fix for test case 18
